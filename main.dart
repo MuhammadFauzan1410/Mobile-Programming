@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyAppBar extends StatelessWidget {
-  const MyAppBar({required this.title, Key? key}) : super(key: key);
+class Tampilan extends StatelessWidget {
+  const Tampilan({required this.title, Key? key}) : super(key: key);
 
   // Fields in a Widget subclass are always marked "final".
 
@@ -44,7 +44,7 @@ class MyScaffold extends StatelessWidget {
       // Column is a vertical, linear layout.
       child: Column(
         children: [
-          MyAppBar(
+          Tampilan(
             title: Text(
               '',
               style: Theme.of(context) //
