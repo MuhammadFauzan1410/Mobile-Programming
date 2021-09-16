@@ -27,11 +27,6 @@ class MyAppBar extends StatelessWidget {
           Expanded(
             child: title,
           ),
-          //const IconButton(
-          //icon: Icon(Icons.search),
-          //tooltip: 'Search',
-          //onPressed: null,
-          //),
         ],
       ),
     );
