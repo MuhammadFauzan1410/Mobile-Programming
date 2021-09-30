@@ -1,75 +1,142 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; // berguna meng import apa yang ada dalam class yang telah di buat.
 
-class Tampilan extends StatelessWidget {
-  const Tampilan({required this.title, Key? key}) : super(key: key);
+class LayoutRow extends StatelessWidget {
+  //untuk membuat nama class, dalam pemberian nama class tersebut menggunakan huruf kapital.
 
-  // Fields in a Widget subclass are always marked "final".
-
-  final Widget title;
-
-  @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 56.0, // in logical pixels
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      decoration: BoxDecoration(color: Colors.blueGrey[500]),
-      // Row is a horizontal, linear layout.
-      child: Row(
-        // <Widget> is the type of items in the list.
-        children: [
-          const IconButton(
-            icon: Icon(Icons.menu),
-            tooltip: 'Navigation menu',
-            onPressed: null, // null disables the button
-          ),
-          // Expanded expands its child
-          // to fill the available space.
-          Expanded(
-            child: title,
-          ),
-        ],
-      ),
-    );
-  }
-}
+    //kelas yang memuat widget yang sifatnya statis.
 
-class MyScaffold extends StatelessWidget {
-  const MyScaffold({Key? key}) : super(key: key);
+    return MaterialApp(
+        //untuk memuat fungsi dari widget seperti tittle, dan lainnya.
 
-  @override
-  Widget build(BuildContext context) {
-    // Material is a conceptual piece
-    // of paper on which the UI appears.
-    return Material(
-      // Column is a vertical, linear layout.
-      child: Column(
-        children: [
-          Tampilan(
-            title: Text(
-              '',
-              style: Theme.of(context) //
-                  .primaryTextTheme
-                  .headline6,
-            ),
-          ),
-          const Expanded(
-            child: Center(
-              child: Text('WELCOME TO MY WORLD'),
-            ),
-          ),
-        ],
+        home: Scaffold(
+      //widget utama untuk membuat sebuah halaman pada flutter
+
+      appBar: AppBar(
+        //digunakan pada sebuah aplikasi sebagai menu petunjuk untuk memudahkan pengguna aplikasi
+
+        flexibleSpace: SafeArea(
+            //untuk memasang silver menghindari intrupsi sistem operasi.
+
+            child: Container(
+                //berguna untuk memuat baris judul yang akan di muat.
+
+                child: Column(
+          //membuat column
+
+          children: [
+            //isi dari judul
+
+            Row(
+              // berguna untuk memasukkan suatu baris
+
+              children: [
+                IconButton(
+                  //berguna untuk menampilkan menu
+
+                  icon: Icon(Icons.menu), //menu pilihan
+
+                  tooltip:
+                      'Navigation menu', //tampilan dari menu yang akan ditampilkan
+
+                  onPressed: null, // null disables the button
+                ),
+
+                Spacer(), //memberikan spasi pada suatu penulisan
+
+                Text(
+                  //berguna untuk menampung suatu penulisan
+
+                  'Kantin Politeknik Kampar', //kalimat yang akan ditampilkan pada sebuah judul.
+
+                  textAlign: TextAlign.center, //peletakan posisi dari penulisan
+                ),
+
+                Spacer() //memberikan spasi pada suatu penulisan
+              ],
+            )
+          ],
+        ))),
       ),
-    );
+
+      body: Container(
+        child: Column(
+          children: [
+            Row(
+              // berguna untuk memasukkan suatu baris.
+
+              children: [
+                Text(
+                  //berguna untuk menampung suatu penulisan
+
+                  'Kolom Pertama Baris Pertama', //kalimat yang akan ditampilkan nantinya.
+
+                  textAlign: TextAlign.left, //peletakan posisi dari penulisan
+                ),
+
+                Spacer(), //memberikan spasi pada suatu penulisan
+
+                Text(
+                  //berguna untuk menampung suatu penulisan
+
+                  'Kolom Kedua Baris Pertama', //kalimat yang akan ditampilkan nantinya.
+
+                  textAlign: TextAlign.center, //peletakan posisi dari penulisan
+                ),
+
+                Spacer(), //memberikan spasi pada suatu penulisan
+
+                Text(
+                  //berguna untuk menampung suatu penulisan
+
+                  'Kolom Ketiga Baris Pertama', //kalimat yang akan ditampilkan nantinya.
+
+                  textAlign: TextAlign.right, //peletakan posisi dari penulisan
+                ),
+              ],
+            ),
+            Row(
+              // berguna untuk memasukkan suatu baris
+
+              children: [
+                Text(
+                  //berguna untuk menampung suatu penulisan
+
+                  'Kolom Pertama Baris Kedua', //kalimat yang akan ditampilkan nantinya.
+
+                  textAlign: TextAlign.left, //peletakan posisi dari penulisan
+                ),
+
+                Spacer(), //memberikan spasi pada suatu penulisan
+
+                Text(
+                  //berguna untuk menampung suatu penulisan
+
+                  'Kolom Kedua Baris Kedua', //kalimat yang akan ditampilkan nantinya.
+
+                  textAlign: TextAlign.center, //peletakan posisi dari penulisan
+                ),
+
+                Spacer(), //memberikan spasi pada suatu penulisan
+
+                Text(
+                  //berguna untuk menampung suatu penulisan
+
+                  'Kolom Ketiga Baris Kedua', //kalimat yang akan ditampilkan nantinya.
+
+                  textAlign: TextAlign.right, //peletakan posisi dari penulisan
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    ));
   }
 }
 
 void main() {
-  runApp(
-    const MaterialApp(
-      title: 'My app', // used by the OS task switcher
-      home: SafeArea(
-        child: MyScaffold(),
-      ),
-    ),
-  );
+  //program yang akan di jalankan.
+
+  runApp(LayoutRow()); //menjalankan class yang diatas.
 }
